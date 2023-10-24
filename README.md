@@ -10,3 +10,5 @@ STEP
 *   Menggabungkan semua data menjadi 1 data
 *   Membuat model machine learning regression (time series)
 *   Membuat model machine learning clustering
+
+test
