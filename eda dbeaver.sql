@@ -9,10 +9,12 @@ from "Customer" c
 group by gender 
 
 --Tentukan nama store dengan total quantity terbanyak!
-select s.storename, count(t.qty)
+select s.storename, count(t.qty)as "quantity"
 from "Store" s
 join "Transaction" t on s.storeid = t.storeid
 group by s.storename 
+order by "quantity" desc 
+
 
 --Tentukan nama produk terlaris dengan total amount terbanyak!
 select p."Product Name" , sum(t.totalamount) as "Total Amount"
