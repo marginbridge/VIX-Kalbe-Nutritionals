@@ -28,4 +28,9 @@ Nama produk terlaris dengan total amount terbanyak! <br>
 
 ## Data Visualization
 
+## Time Series Forecasting
+
+## Customer Segmentation: Clustering
+
+
 
