@@ -17,3 +17,5 @@ VIX Data Scientist Kalbe Nutritionals merupakan virtual internship experience ya
 * PostgreSQL <br>
 
 ## Exploratory Data Analysis (EDA) di dbeaver
+Berapa rata-rata umur customer jika dilihat dari marital statusnya ? <br>
+<img width="216" alt="Screenshot 2023-11-06 014601" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/5f7c32f3-e8bb-440e-967f-2532db169000">
