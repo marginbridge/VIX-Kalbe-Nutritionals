@@ -180,7 +180,45 @@ Output:
 ### Future Improvement
 * Rolling forecast
 * Other methods: Exponential Smoothing (ES), Simple ES
-## Customer Segmentation: Clustering
-
-
-
+## 4. Customer Segmentation: Clustering
+### Data preparation
+```Python
+df = df_merged.groupby('CustomerID').agg({'TransactionID':['count'],
+                                          'Qty':['sum'],
+                                          'TotalAmount':['sum']}).reset_index()
+df.columns = ['CustomerID','TransactionID','Quantity','Total Amount']
+df.head()
+```
+Feature slection for the model. Considering only 2 features (**Quantity and Total Amount**) Feature scaling:
+```Python
+X = df.iloc[:,[2,3]].values
+```
+```Python
+# scaling using MinMaxScaler
+scaler = MinMaxScaler()
+scaler.fit(X)
+scaled_data = scaler.fit_transform(X)
+```
+### KMeans clustering
+Finding the number of clusters using **elbow method**
+```Python
+K = range(1,12)
+wss = []
+for k in K:
+    kmeans=KMeans(n_clusters=k,init="k-means++")
+    kmeans=kmeans.fit(X)
+    wss_iter = kmeans.inertia_
+    wss.append(wss_iter)
+```
+We store the number of clusters along with their WSS Scores in a DataFrame:
+```Python
+mycenters = pd.DataFrame({'Clusters' : K, 'WSS' : wss})
+mycenters
+```
+Visualize:
+```Python
+sns.lineplot(x = 'Clusters', y = 'WSS', data = mycenters, marker="o")
+```
+<p align="center">
+  <img src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/d1c26d0f-93fc-4712-9a74-e51e8dffac8c" alt="Image description" width="400" height="350">
+</p>
