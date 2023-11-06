@@ -55,7 +55,17 @@ for key, value in result[4].items():
 	print('\t%s: %.3f' % (key, value))
 ```
 p-value < 0.05, thus the data is stationary.
-### 3. Create training and testing datasets
+### 3. Figure out order for ARIMA
+```Python
+auto_arima_model = pm.auto_arima(df['Qty'],
+                                 seasonal=False,
+                                 stepwise=False,
+                                 trace=True,
+                                 suppress_warnings=True)
+auto_arima_model.summary()
+```
+Got Best model: ARIMA(1,0,1)
+### 4. Create training and testing datasets
 ```Python
 train_size = int(len(df['Qty']) * 0.8)
 train_data = df['Qty'][:train_size]
@@ -71,8 +81,50 @@ plt.show()
 ```
 ![download (1)](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/e5ba5cfb-c5b8-46f7-b473-b3ee843c9aca)
 
-### 4. Create training and testing datasets
+### 4. Implement ARIMA
+```Python
+model = ARIMA(train_data, order=(1,0,1))
+model = model.fit()
+model.summary()
+```
+### 5. Predict on test set
+```Python
+start = len(train_data)
+end = len(train_data)+len(test_data)-1
+pred = model.predict(start=start,end=end,typ='levels')
+print(pred)
+```
+Check model accuracy:
+```Python
+rmse = sqrt(mean_squared_error(test_data,pred))
+print(rmse)
+```
+output:
+```Python
+15.49482859020857
+```
+### 5. Improvement
+Implement SARIMAX: 
+```Python
+model_sarimax = sm.tsa.statespace.SARIMAX(train_data,order=(1,0,1),seasonal_order=(0,0,0,0))
+model_sarimax_fit = model_sarimax.fit()
+```
+Predict on test set:
+```Python
+start = len(train_data)
+end = len(train_data)+len(test_data)-1
+pred = model_sarimax_fit.predict(start=start,end=end,typ='levels')
+print(pred)
+```
+Check accuracy:
+```Python
+rmse = sqrt(mean_squared_error(test_data,pred))
+print(rmse)
+```
+Output:
+```Python
+15.330031938621186
+```
 ## Customer Segmentation: Clustering
-
 
 
