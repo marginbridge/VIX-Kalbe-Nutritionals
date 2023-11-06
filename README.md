@@ -100,6 +100,35 @@ output:
 ```Python
 15.49482859020857
 ```
+### 5. Improvement: Manual ARIMA
+```Python
+model = ARIMA(train_data, order=(70,2,2))
+model = model.fit()
+model.summary()
+```
+```Python
+start = len(train_data)
+end = len(train_data)+len(test_data)-1
+pred = model.predict(start=start,end=end,typ='levels')
+print(pred)
+```
+```Python
+pred.plot(label='Predicted')
+test_data.plot(label='Actual')
+
+plt.legend()
+plt.show()
+```
+![download (4)](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/a6093ac6-b0e8-4e0d-83e4-a26c8d618091)
+
+```Python
+rmse = sqrt(mean_squared_error(test_data,pred))
+print(rmse)
+```
+Output:
+```Python
+17.333560693932814
+```
 ### 6. Forecast for all product
 ```Python
 product_reg_df = df_merged[['Qty', 'Date', 'Product Name']]
