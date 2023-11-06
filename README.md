@@ -41,9 +41,6 @@ Aim to implement a machine learning model to accurately predict the number of sa
 ```Python
 df = df_merged.groupby('Date').agg({'Qty':'sum'})
 ```
-<p align="center">
-<img width="103" alt="image" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/2c169c40-c7af-41db-bb2e-f1098e24da9d">
-
 ### 2. Check stasionarity
 ```Python
 X = df['Qty'].values
@@ -120,10 +117,16 @@ for product_name, group_data in new:
 forecast_product_df.set_index('Date', inplace=True)
 forecast_product_df.head()
 ```
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+Output:
+
+| Date       | Cashew           | Cheese Stick    | Choco Bar     | Coffee Candy  | Crackers      | Ginger Candy  | Oat           | Potato Chip   | Thai Tea      | Yoghurt       |
+| :--------- |:----------------:|:---------------:|:-------------:|:-------------:|:-------------:|:-------------:|--------------:|:-------------:|:-------------:|--------------:|
+| 2023-01-01 | some wordy text  | $1600           |               |               |               |               |               |               |               |               |
+| 2023-01-02 | centered         | $12             |               |               |               |               |               |               |               |               |
+| 2023-01-03 | are neat         | $1              |               |               |               |               |               |               |               |               |
+| 2023-01-04 | are neat         | $1              |               |               |               |               |               |               |               |               |
+| 2023-01-05 | are neat         | $1              |               |               |               |               |               |               |               |               |
 ## Customer Segmentation: Clustering
+
 
 
