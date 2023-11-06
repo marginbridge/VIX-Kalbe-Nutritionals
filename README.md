@@ -120,6 +120,10 @@ for product_name, group_data in new:
 forecast_product_df.set_index('Date', inplace=True)
 forecast_product_df.head()
 ```
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 ## Customer Segmentation: Clustering
 
 
