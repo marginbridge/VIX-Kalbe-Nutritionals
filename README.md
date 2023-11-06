@@ -119,7 +119,9 @@ test_data.plot(label='Actual')
 plt.legend()
 plt.show()
 ```
-![download (4)](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/a6093ac6-b0e8-4e0d-83e4-a26c8d618091)
+<p align="center">
+  <img src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/a6093ac6-b0e8-4e0d-83e4-a26c8d618091" alt="Image description" width="500" height="500">
+</p>
 
 ```Python
 rmse = sqrt(mean_squared_error(test_data,pred))
