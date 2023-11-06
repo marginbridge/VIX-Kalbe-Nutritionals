@@ -371,7 +371,6 @@ plt.ylabel('Total Amount')
 plt.legend()
 plt.show()
 ```
-Output:
 ![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/e7c81889-f670-4c36-83a8-e8b84af5b4b3)
 
 ```Python
@@ -383,9 +382,10 @@ combined_df = pd.concat([df, new_data], axis=1)
 
 combined_df.head()
 ```
+Output:
 | CustomerID | TransactionID | Quantity | Total Amount | Cluster  | 
 |----------- |-------------- |----------|------------- |----------|
-| 1          |     17        |   60     |     623300   |    2     |          
+|      1     |     17        |   60     |     623300   |    2     |          
 |      2     |     13        |   57     |     392300   |    0     |          
 |      3     |     15        |   56     |     446200   |    0     |          
 |      4     |     10        |   46     |     30250    |    1     |          
