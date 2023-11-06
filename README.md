@@ -371,7 +371,9 @@ plt.ylabel('Total Amount')
 plt.legend()
 plt.show()
 ```
-![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/e7c81889-f670-4c36-83a8-e8b84af5b4b3)
+<p align="center">
+  <img src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/e7c81889-f670-4c36-83a8-e8b84af5b4b3" alt="Image description" width="500" height="450">
+</p>
 
 ```Python
 # Convert the NumPy array into a DataFrame
