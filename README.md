@@ -333,3 +333,60 @@ for n_clusters in range_n_clusters:
     )
 plt.show()
 ```
+Output:
+```Python
+For n_clusters = 2 The average silhouette_score is : 0.5634481545384639
+For n_clusters = 3 The average silhouette_score is : 0.5391208505196545
+For n_clusters = 4 The average silhouette_score is : 0.5200001192732446
+For n_clusters = 5 The average silhouette_score is : 0.5376406043497329
+For n_clusters = 6 The average silhouette_score is : 0.5138904283581923
+```
+![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/0adfd2a9-c19f-437d-b430-cf1f91ded6bb)
+
+![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/9f4756d1-ecf2-46f5-b4cf-72f123176b89)
+
+![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/c6253017-1263-4777-a162-e3579b72295e)
+
+![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/962cd07f-cf4b-469b-aab5-a9cc88a4dc5c)
+
+![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/89b004c2-3ca3-44f6-82d5-e9c3b9f5c2cd)
+
+Both elbow and silhouette score got different result, but I still choose elbow (K=3) because the calculation simplicity of elbow makes it more suited than silhouette score for datasets with smaller size or time complexity.
+
+### Applying cluster K=3
+```Python
+# Fitting K-Means to the dataset
+kmeans = KMeans(n_clusters = 3, init = 'k-means++', random_state = 42)
+y_kmeans = kmeans.fit_predict(X)
+
+#Visualizing all the clusters
+plt.scatter(X[y_kmeans == 0, 0], X[y_kmeans == 0, 1], s = 100, c = 'red', label = 'Cluster 0')
+plt.scatter(X[y_kmeans == 1, 0], X[y_kmeans == 1, 1], s = 100, c = 'blue', label = 'Cluster 1')
+plt.scatter(X[y_kmeans == 2, 0], X[y_kmeans == 2, 1], s = 100, c = 'green', label = 'Cluster 2')
+plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s = 300, c = 'yellow', label = 'Centroids')
+
+plt.title('Segmentasi Pelanggan berdasarkan Quantity dan Total Amountnya')
+plt.xlabel('Quantity')
+plt.ylabel('Total Amount')
+plt.legend()
+plt.show()
+```
+Output:
+![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/e7c81889-f670-4c36-83a8-e8b84af5b4b3)
+
+```Python
+# Convert the NumPy array into a DataFrame
+new_data = pd.DataFrame(y_kmeans, columns=['Cluster'])
+
+# Concatenate the new DataFrame with the existing DataFrame
+combined_df = pd.concat([df, new_data], axis=1)
+
+combined_df.head()
+```
+| CustomerID | TransactionID | Quantity | Total Amount | Cluster  | 
+|----------- |-------------- |----------|------------- |----------|
+| 1          |     17        |   60     |     623300   |    2     |          
+|      2     |     13        |   57     |     392300   |    0     |          
+|      3     |     15        |   56     |     446200   |    0     |          
+|      4     |     10        |   46     |     30250    |    1     |          
+|      5     |      7        |   27     |     268600   |    1     |                  
