@@ -36,7 +36,42 @@ VIX Data Scientist Kalbe Nutritionals merupakan virtual internship experience ya
 ## Data Visualization
 
 ## Time Series Forecasting
+Aim to implement a machine learning model to accurately predict the number of sales (quantity) of the total Kalbe products.
+### 1. Data preparation
+```Python
+df = df_merged.groupby('Date').agg({'Qty':'sum'})
+```
+<p align="center">
+<img width="103" alt="image" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/2c169c40-c7af-41db-bb2e-f1098e24da9d">
 
+### 2. Check stasionarity
+```Python
+X = df['Qty'].values
+result = adfuller(X)
+print('ADF Statistic: %f' % result[0])
+print('p-value: %f' % result[1])
+print('Critical Values:')
+for key, value in result[4].items():
+	print('\t%s: %.3f' % (key, value))
+```
+p-value < 0.05, thus the data is stationary.
+### 3. Create training and testing datasets
+```Python
+train_size = int(len(df['Qty']) * 0.8)
+train_data = df['Qty'][:train_size]
+test_data = df['Qty'][train_size:]
+print(train_data.shape,test_data.shape)
+```
+Visulize the differences:
+```Python
+plt.figure(figsize=(12,5))
+sns.lineplot(data=train_data, x=train_data.index, y=train_data)
+sns.lineplot(data=test_data, x=test_data.index, y=test_data)
+plt.show()
+```
+![download (1)](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/e5ba5cfb-c5b8-46f7-b473-b3ee843c9aca)
+
+### 4. Create training and testing datasets
 ## Customer Segmentation: Clustering
 
 
