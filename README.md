@@ -17,14 +17,21 @@ VIX Data Scientist Kalbe Nutritionals merupakan virtual internship experience ya
 * PostgreSQL <br>
 
 ## Exploratory Data Analysis (EDA) di dbeaver
-Berapa rata-rata umur customer jika dilihat dari marital statusnya ? <br>
-<img width="450" alt="Screenshot 2023-11-06 014601" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/5f7c32f3-e8bb-440e-967f-2532db169000"> <br>
-Berapa rata-rata umur customer jika dilihat dari gender nya ? <br>
-<img width="450" alt="Screenshot 2023-11-06 015501" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/ce4a01cf-ce35-4bbe-aef2-efb23643dec7"> <br>
-Nama store dengan total quantity terbanyak! <br>
-<img width="450" alt="Screenshot 2023-11-06 015707" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/744a81cc-9cf0-499a-9c93-3caf759d9651"> <br>
-Nama produk terlaris dengan total amount terbanyak! <br>
-<img width="450" alt="Screenshot 2023-11-06 015926" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/c606ce05-a736-4684-9a86-8998139285af">
+**Berapa rata-rata umur customer jika dilihat dari marital statusnya?** <br>
+<p align="center">
+<img width="400" alt="Screenshot 2023-11-06 014601" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/5f7c32f3-e8bb-440e-967f-2532db169000"> <br>
+
+**Berapa rata-rata umur customer jika dilihat dari gender nya?** <br>
+<p align="center"> 
+<img width="400" alt="Screenshot 2023-11-06 015501" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/ce4a01cf-ce35-4bbe-aef2-efb23643dec7"> <br>
+
+**Nama store dengan total quantity terbanyak!** <br>
+<p align="center"> 
+<img width="400" alt="Screenshot 2023-11-06 015707" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/744a81cc-9cf0-499a-9c93-3caf759d9651"> <br>
+
+**Nama produk terlaris dengan total amount terbanyak!** <br>
+<p align="center"> 
+<img width="400" alt="Screenshot 2023-11-06 015926" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/c606ce05-a736-4684-9a86-8998139285af">
 
 ## Data Visualization
 
