@@ -120,7 +120,7 @@ plt.legend()
 plt.show()
 ```
 <p align="center">
-  <img src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/a6093ac6-b0e8-4e0d-83e4-a26c8d618091" alt="Image description" width="500" height="500">
+  <img src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/a6093ac6-b0e8-4e0d-83e4-a26c8d618091" alt="Image description" width="500" height="450">
 </p>
 
 ```Python
@@ -131,6 +131,7 @@ Output:
 ```Python
 17.333560693932814
 ```
+
 ### 6. Forecast for all product
 ```Python
 product_reg_df = df_merged[['Qty', 'Date', 'Product Name']]
@@ -157,6 +158,23 @@ Output:
 | 2023-01-03 | 2.477836         | 2.935584        | 5.920862      | 4.004379      | 3.526270	  | 4.949085      | 1.989686      | 2.802217      | 3.496307      | 4.059759      |
 | 2023-01-04 | 2.453314         | 2.947930        | 5.971625	  | 4.012703      | 3.505712      | 4.953368      | 1.989689      | 2.801329      | 3.509329      | 3.986237      |
 | 2023-01-05 | 2.461101         | 2.955920        | 6.004260      | 4.015804      | 3.520867      | 4.954385      | 1.989690      | 2.800869      | 3.502604      | 4.058795      |
+
+```Python
+round(forecast_product_df.describe().T['mean'],0)
+```
+Output:
+| Column 1     | Column 2 |
+| ------------ | -------- |
+| Cashew       | 2.0      |
+| Cheese Stick | 3.0      |
+| Choco Bar    | 6.0      |
+| Coffee Candy | 4.0      |
+| Crackers     | 4.0      |
+| Ginger Candy | 5.0      |
+| Oat          | 2.0      |
+| Potato Chip  | 3.0      |
+| Thai Tea     | 4.0      |
+| Yoghurt      | 4.0      |
 ## Customer Segmentation: Clustering
 
 
