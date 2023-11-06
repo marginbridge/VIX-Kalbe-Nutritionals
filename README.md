@@ -103,27 +103,22 @@ output:
 ```Python
 15.49482859020857
 ```
-### 5. Improvement
-Implement SARIMAX: 
+### 6. Forecast for all product
 ```Python
-model_sarimax = sm.tsa.statespace.SARIMAX(train_data,order=(1,0,1),seasonal_order=(0,0,0,0))
-model_sarimax_fit = model_sarimax.fit()
-```
-Predict on test set:
-```Python
-start = len(train_data)
-end = len(train_data)+len(test_data)-1
-pred = model_sarimax_fit.predict(start=start,end=end,typ='levels')
-print(pred)
-```
-Check accuracy:
-```Python
-rmse = sqrt(mean_squared_error(test_data,pred))
-print(rmse)
-```
-Output:
-```Python
-15.330031938621186
+product_reg_df = df_merged[['Qty', 'Date', 'Product Name']]
+new = product_reg_df.groupby("Product Name")
+
+forecast_product_df = pd.DataFrame({'Date': pd.date_range(start='2023-01-01', periods=90)})
+
+for product_name, group_data in new:
+    target_var = group_data['Qty']
+    model = ARIMA(target_var.values, order=(1,0,1))
+    model_fit = model.fit()
+    forecast = model_fit.forecast(90)
+    forecast_product_df[product_name] = forecast
+
+forecast_product_df.set_index('Date', inplace=True)
+forecast_product_df.head()
 ```
 ## Customer Segmentation: Clustering
 
