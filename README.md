@@ -16,7 +16,7 @@ VIX Data Scientist Kalbe Nutritionals merupakan virtual internship experience ya
 * Dbeaver <br>
 * PostgreSQL <br>
 
-## Exploratory Data Analysis (EDA) di dbeaver
+## 1. Exploratory Data Analysis (EDA) di dbeaver
 **Berapa rata-rata umur customer jika dilihat dari marital statusnya?** <br>
 <p align="center">
 <img width="400" alt="Screenshot 2023-11-06 014601" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/5f7c32f3-e8bb-440e-967f-2532db169000"> <br>
@@ -33,15 +33,15 @@ VIX Data Scientist Kalbe Nutritionals merupakan virtual internship experience ya
 <p align="center"> 
 <img width="400" alt="Screenshot 2023-11-06 015926" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/c606ce05-a736-4684-9a86-8998139285af">
 
-## Data Visualization
+## 2. Data Visualization
 
-## Time Series Forecasting
+## 3. Time Series Forecasting
 Aim to implement a machine learning model to accurately predict the number of sales (quantity) of the total Kalbe products.
-### 1. Data preparation
+### Data preparation
 ```Python
 df = df_merged.groupby('Date').agg({'Qty':'sum'})
 ```
-### 2. Check stasionarity
+### Check stasionarity
 ```Python
 X = df['Qty'].values
 result = adfuller(X)
@@ -52,7 +52,7 @@ for key, value in result[4].items():
 	print('\t%s: %.3f' % (key, value))
 ```
 p-value < 0.05, thus the data is stationary.
-### 3. Figure out order for ARIMA
+### Figure out order for ARIMA
 ```Python
 auto_arima_model = pm.auto_arima(df['Qty'],
                                  seasonal=False,
@@ -62,7 +62,7 @@ auto_arima_model = pm.auto_arima(df['Qty'],
 auto_arima_model.summary()
 ```
 Got Best model: ARIMA(1,0,1)
-### 4. Create training and testing datasets
+### Create training and testing datasets
 ```Python
 train_size = int(len(df['Qty']) * 0.8)
 train_data = df['Qty'][:train_size]
@@ -76,15 +76,17 @@ sns.lineplot(data=train_data, x=train_data.index, y=train_data)
 sns.lineplot(data=test_data, x=test_data.index, y=test_data)
 plt.show()
 ```
-![download (1)](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/e5ba5cfb-c5b8-46f7-b473-b3ee843c9aca)
+<p align="center">
+  <img src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/e5ba5cfb-c5b8-46f7-b473-b3ee843c9aca" alt="Image description" width="900" height="350">
+</p>
 
-### 4. Implement ARIMA
+### Implement ARIMA
 ```Python
 model = ARIMA(train_data, order=(1,0,1))
 model = model.fit()
 model.summary()
 ```
-### 5. Predict on test set
+### Predict on test set
 ```Python
 start = len(train_data)
 end = len(train_data)+len(test_data)-1
@@ -100,7 +102,7 @@ output:
 ```Python
 15.49482859020857
 ```
-### 5. Improvement: Manual ARIMA
+### Improvement: Manual ARIMA
 ```Python
 model = ARIMA(train_data, order=(70,2,2))
 model = model.fit()
@@ -132,7 +134,7 @@ Output:
 17.333560693932814
 ```
 
-### 6. Forecast for all product
+### Forecast for all product
 ```Python
 product_reg_df = df_merged[['Qty', 'Date', 'Product Name']]
 new = product_reg_df.groupby("Product Name")
@@ -163,7 +165,7 @@ Output:
 round(forecast_product_df.describe().T['mean'],0)
 ```
 Output:
-| Column 1     | Column 2 |
+| Product Name | Quantity |
 | ------------ | -------- |
 | Cashew       | 2.0      |
 | Cheese Stick | 3.0      |
@@ -175,6 +177,9 @@ Output:
 | Potato Chip  | 3.0      |
 | Thai Tea     | 4.0      |
 | Yoghurt      | 4.0      |
+### Future Improvement
+* Rolling forecast
+* Other methods: Exponential Smoothing (ES), Simple ES
 ## Customer Segmentation: Clustering
 
 
