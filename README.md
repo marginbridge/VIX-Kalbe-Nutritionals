@@ -3,8 +3,10 @@
 VIX Data Scientist Kalbe Nutritionals merupakan virtual internship experience yang difasilitasi oleh Rakamin Academy. 
 
 **Objectives** <br>
-* Memperkiraan quantity product yang terjual sehingga tim inventory dapat membuat stock persediaan harian yang cukup. <br>
-* Membuat customer segment yang nantinya akan digunakan oleh tim marketing untuk memberikan personalized promotion dan sales treatment. <br>
+1. Melakukan exploratory data analysis di dbeaver
+2. Membuat dashboard di tableau
+3. Memprediksi jumlah penjualan (quantity) dari total keseluruhan product Kalbe
+4. Membuat cluster/segment customer berdasarkan beberapa kriteria
 
 **Dataset** <br>
 [Kalbe Nutritionals sales dataset tahun 2022](https://drive.google.com/drive/folders/1_rQrauVW2OvLIe2zd54Vcwnr2EY-vnnR) <br>
