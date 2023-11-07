@@ -199,7 +199,7 @@ scaler = MinMaxScaler()
 scaler.fit(X)
 scaled_data = scaler.fit_transform(X)
 ```
-### KMeans clustering
+### Modelling
 Finding the number of clusters using **elbow method**
 ```Python
 K = range(1,12)
