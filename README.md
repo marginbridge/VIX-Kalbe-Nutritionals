@@ -1,12 +1,12 @@
 # Kalbe Nutritionals Data Scientist Project Based Internship Program
 ## Introduction
-VIX Data Scientist Kalbe Nutritionals merupakan virtual internship experience yang difasilitasi oleh Rakamin Academy. 
+The VIX Data Scientist at Kalbe Nutritionals is a virtual internship experience facilitated by Rakamin Academy. 
 
 **Objectives** <br>
-1. Melakukan exploratory data analysis di dbeaver
-2. Membuat dashboard di tableau
-3. Memprediksi jumlah penjualan (quantity) dari total keseluruhan product Kalbe
-4. Membuat cluster/segment customer berdasarkan beberapa kriteria
+1. Perform exploratory data analysis in DBeaver.
+2. Create a dashboard in Tableau.
+3. Predict the quantity of sales for the entire Kalbe product line.
+4. Create customer clusters or segments based on various criteria.
 
 **Dataset** <br>
 [Kalbe Nutritionals sales dataset tahun 2022](https://drive.google.com/drive/folders/1_rQrauVW2OvLIe2zd54Vcwnr2EY-vnnR) <br>
@@ -18,20 +18,20 @@ VIX Data Scientist Kalbe Nutritionals merupakan virtual internship experience ya
 * Dbeaver <br>
 * PostgreSQL <br>
 
-## 1. Exploratory Data Analysis (EDA) di dbeaver
-**Berapa rata-rata umur customer jika dilihat dari marital statusnya?** <br>
+## 1. Exploratory Data Analysis (EDA) in DBeaver
+**What is the average age of customers based on their marital status?** <br>
 <p align="center">
 <img width="400" alt="Screenshot 2023-11-06 014601" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/5f7c32f3-e8bb-440e-967f-2532db169000"> <br>
 
-**Berapa rata-rata umur customer jika dilihat dari gender nya?** <br>
+**What is the average age of customers based on their gender?** <br>
 <p align="center"> 
 <img width="400" alt="Screenshot 2023-11-06 015501" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/ce4a01cf-ce35-4bbe-aef2-efb23643dec7"> <br>
 
-**Nama store dengan total quantity terbanyak!** <br>
+**What is the name of the store with the highest total quantity of products?** <br>
 <p align="center"> 
 <img width="400" alt="Screenshot 2023-11-06 015707" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/744a81cc-9cf0-499a-9c93-3caf759d9651"> <br>
 
-**Nama produk terlaris dengan total amount terbanyak!** <br>
+**What is the name of the best-selling product with the highest total amount?** <br>
 <p align="center"> 
 <img width="400" alt="Screenshot 2023-11-06 015926" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/c606ce05-a736-4684-9a86-8998139285af">
 
@@ -105,6 +105,7 @@ output:
 15.49482859020857
 ```
 ### Improvement: Manual ARIMA
+Choose p,d,q order(70,2,2) for improvement by 
 ```Python
 model = ARIMA(train_data, order=(70,2,2))
 model = model.fit()
