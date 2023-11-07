@@ -105,7 +105,7 @@ output:
 15.49482859020857
 ```
 ### Improvement: Manual ARIMA
-Choose p,d,q order(70,2,2) for improvement by 
+Tuned p,d,q order(70,2,1) for improvement by 
 ```Python
 model = ARIMA(train_data, order=(70,2,2))
 model = model.fit()
@@ -140,9 +140,10 @@ The order (70, 2, 2) resulted in higher error when compared to the order (1, 0, 
 |       Order          |       RMSE         |
 | :------------------: | :----------------: |
 |   (1,0,1)            |   15.49            |
-|   (70,2,2)           |   17.33            |
+|   (70,2,1)           |   17.33            |
 
 ### Forecast for all product
+Forecast all product for the next 90 days:
 ```Python
 product_reg_df = df_merged[['Qty', 'Date', 'Product Name']]
 new = product_reg_df.groupby("Product Name")
@@ -400,5 +401,3 @@ Output:
 |      3     |     15        |   56     |     446200   |    0     |          
 |      4     |     10        |   46     |     30250    |    1     |          
 |      5     |      7        |   27     |     268600   |    1     |   
-
-### Recommendations
