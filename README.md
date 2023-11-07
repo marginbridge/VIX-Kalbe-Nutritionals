@@ -41,7 +41,7 @@ Aim to implement a machine learning model to accurately predict the number of sa
 ```Python
 df = df_merged.groupby('Date').agg({'Qty':'sum'})
 ```
-### Check stasionarity
+### Check stationarity
 ```Python
 X = df['Qty'].values
 result = adfuller(X)
@@ -133,6 +133,11 @@ Output:
 ```Python
 17.333560693932814
 ```
+The order (70, 2, 2) resulted in higher error when compared to the order (1, 0, 1). Therefore, we have opted for order (1, 0, 1) for our model.
+|       Order          |       RMSE         |
+| :------------------: | :----------------: |
+|   (1,0,1)            |   15.49            |
+|   (70,2,2)           |   17.33            |
 
 ### Forecast for all product
 ```Python
