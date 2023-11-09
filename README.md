@@ -21,19 +21,19 @@ The VIX Data Scientist at Kalbe Nutritionals is a virtual internship experience 
 ## 1. Exploratory Data Analysis (EDA) in DBeaver
 **What is the average age of customers based on their marital status?** <br>
 <p align="center">
-<img width="165" alt="gender" src="./images/gender"> <br>
+<img src="./images/gender.png"> <br>
 
 **What is the average age of customers based on their gender?** <br>
 <p align="center"> 
-<img width="400" alt="Screenshot 2023-11-06 015501" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/ce4a01cf-ce35-4bbe-aef2-efb23643dec7"> <br>
+<img src="./images/highest-total-amount.png"> <br>
 
 **What is the name of the store with the highest total quantity of products?** <br>
 <p align="center"> 
-<img width="400" alt="Screenshot 2023-11-06 015707" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/744a81cc-9cf0-499a-9c93-3caf759d9651"> <br>
+<img src="./images/highest-total-quantity.png"> <br>
 
 **What is the name of the best-selling product with the highest total amount?** <br>
 <p align="center"> 
-<img width="400" alt="Screenshot 2023-11-06 015926" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/c606ce05-a736-4684-9a86-8998139285af">
+<img src="./images/highest-total-amount.png">
 
 ## 2. Data Visualization
 
@@ -79,7 +79,7 @@ sns.lineplot(data=test_data, x=test_data.index, y=test_data)
 plt.show()
 ```
 <p align="center">
-  <img src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/e5ba5cfb-c5b8-46f7-b473-b3ee843c9aca" alt="Image description" width="900" height="350">
+  <img src="./images/highest-total-amount.png">
 </p>
 
 ### Implement ARIMA
