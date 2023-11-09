@@ -241,7 +241,7 @@ df = df_merged.groupby('CustomerID').agg({'TransactionID':['count'],
 df.columns = ['CustomerID','TransactionID','Quantity','Total Amount']
 df.head()
 ```
-Feature slection for the model. Considering only 2 features (**Quantity and Total Amount**) Feature scaling:
+Performing feature selection for the model, focusing on only two features: **Quantity and Total Amount**. 
 ```Python
 X = df.iloc[:,[2,3]].values
 ```
