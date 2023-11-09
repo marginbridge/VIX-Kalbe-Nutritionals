@@ -256,7 +256,7 @@ Visualize:
 sns.lineplot(x = 'Clusters', y = 'WSS', data = mycenters, marker="o")
 ```
 <p align="center">
-  <img src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/d1c26d0f-93fc-4712-9a74-e51e8dffac8c" alt="Image description" width="400" height="350">
+<img src="./images/wss.png">
 </p>
 
 From above we see that the optimum value of K for this generated data is 3 because for K value of 3 and above the fluctuations in wcss is not happening much. <br>
@@ -370,22 +370,19 @@ for n_clusters in range_n_clusters:
 plt.show()
 ```
 Output:
-```Python
+```bash
 For n_clusters = 2 The average silhouette_score is : 0.5634481545384639
 For n_clusters = 3 The average silhouette_score is : 0.5391208505196545
 For n_clusters = 4 The average silhouette_score is : 0.5200001192732446
 For n_clusters = 5 The average silhouette_score is : 0.5376406043497329
 For n_clusters = 6 The average silhouette_score is : 0.5138904283581923
 ```
-![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/0adfd2a9-c19f-437d-b430-cf1f91ded6bb)
+<img src="./images/silhouette-k=2.png">
+<img src="./images/silhouette-k=3.png">
+<img src="./images/silhouette-k=4.png">
+<img src="./images/silhouette-k=5.png">
+<img src="./images/silhouette-k=6.png">
 
-![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/9f4756d1-ecf2-46f5-b4cf-72f123176b89)
-
-![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/c6253017-1263-4777-a162-e3579b72295e)
-
-![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/962cd07f-cf4b-469b-aab5-a9cc88a4dc5c)
-
-![image](https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/89b004c2-3ca3-44f6-82d5-e9c3b9f5c2cd)
 
 Both elbow and silhouette score got different result, but I still choose elbow (K=3) because the calculation simplicity of elbow makes it more suited than silhouette score for datasets with smaller size or time complexity.
 
