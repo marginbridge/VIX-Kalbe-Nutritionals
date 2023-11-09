@@ -275,7 +275,7 @@ sns.lineplot(x = 'Clusters', y = 'WSS', data = mycenters, marker="o")
 <img src="./images/wss.png">
 </p>
 
-From above we see that the optimum value of K for this generated data is 3 because for K value of 3 and above the fluctuations in wcss is not happening much. <br>
+From above we see that the optimum value of K for this generated data is 3, because for K = 3 and above the fluctuations in wcss is not happening much. <br>
 
 Now here's comes the Silhouette. Let's use it to check out the best K value for our clustering algorithm:
 
