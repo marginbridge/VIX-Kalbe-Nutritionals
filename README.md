@@ -385,7 +385,7 @@ For n_clusters = 6 The average silhouette_score is : 0.5138904283581923
 <img src="./images/silhouette-k=6.png">
 
 
-Both elbow and silhouette score got different result, but I still choose elbow (K=3) because the calculation simplicity of elbow makes it more suited than silhouette score for datasets with smaller size or time complexity.
+**Both elbow and silhouette score got different result**, but I **still choose elbow (K=3)** because the calculation simplicity of elbow makes it more suited than silhouette score for datasets with smaller size or time complexity.
 
 ### Applying cluster K=3
 ```Python
