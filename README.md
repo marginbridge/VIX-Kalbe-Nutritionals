@@ -9,7 +9,7 @@ The VIX Data Scientist at Kalbe Nutritionals is a virtual internship experience 
 4. Create customer clusters or segments based on various criteria.
 
 **Dataset** <br>
-[Kalbe Nutritionals sales dataset tahun 2022](https://drive.google.com/drive/folders/1_rQrauVW2OvLIe2zd54Vcwnr2EY-vnnR) <br>
+Kalbe Nutritionals sales dataset tahun 2022.
 
 **Tools** <br>
 * Python <br>
