@@ -154,23 +154,20 @@ q_values = range(0, 3)
 warnings.filterwarnings("ignore")
 evaluate_models(df['Qty'].values, p_values, d_values, q_values)
 ```
-<p align="center">
-  <img src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/a6093ac6-b0e8-4e0d-83e4-a26c8d618091" alt="Image description" width="500" height="450">
-</p>
 
 ```Python
 rmse = sqrt(mean_squared_error(test_data,pred))
 print(rmse)
 ```
-Output:
 ```Python
-17.333560693932814
+Output:
+Best ARIMA(10, 1, 1) RMSE=15.556
 ```
-The order (70, 2, 2) resulted in higher error when compared to the order (1, 0, 1). Therefore, we have opted for order (1, 0, 1) for our model.
+The order (10, 1, 1) resulted in higher error when compared to the order (1, 0, 1). Therefore, we have opted for order (1, 0, 1) for our model.
 |       Order          |       RMSE         |
 | :------------------: | :----------------: |
 |   (1,0,1)            |   15.49            |
-|   (70,2,1)           |   17.33            |
+|   (10,1,1)           |   17.55            |
 
 ### Forecast for all product
 Forecast all product for the next 90 days:
