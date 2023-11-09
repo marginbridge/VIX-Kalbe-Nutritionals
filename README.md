@@ -21,19 +21,31 @@ The VIX Data Scientist at Kalbe Nutritionals is a virtual internship experience 
 ## 1. Exploratory Data Analysis (EDA) in DBeaver
 **What is the average age of customers based on their marital status?** <br>
 <p align="center">
-<img src="./images/gender.png"> <br>
+<img src="./images/maritalstatus.png">
+</p>
+
+As we can see, the age for married individuals is 43, for single, it is 29, and the rest entries are null.
 
 **What is the average age of customers based on their gender?** <br>
 <p align="center"> 
-<img src="./images/highest-total-amount.png"> <br>
+<img src="./images/gender.png"> <br>
+</p>
+
+As we can see, the age for women (0) is 40, while for men (1) it is 39.
 
 **What is the name of the store with the highest total quantity of products?** <br>
 <p align="center"> 
-<img src="./images/highest-total-quantity.png"> <br>
+<img src="./images/highest-total-quantity.png">
+</p>
+
+As we can see, Lingga has the highest total quantity of products.
 
 **What is the name of the best-selling product with the highest total amount?** <br>
 <p align="center"> 
 <img src="./images/highest-total-amount.png">
+</p>
+
+As we can see, cheese stick has the highest total amount.
 
 ## 2. Data Visualization
 
@@ -101,9 +113,11 @@ rmse = sqrt(mean_squared_error(test_data,pred))
 print(rmse)
 ```
 output:
-```Python
+```bash
 15.49482859020857
 ```
+After the initial attempt, we got an error of 15.49%. Currently, we are working on enhancing the model through ARIMA grid search.
+
 ### Improvement: Grid search ARIMA
 ```Python
 # Evaluate an ARIMA model for a given order (p, d, q)
@@ -155,20 +169,21 @@ warnings.filterwarnings("ignore")
 evaluate_models(df['Qty'].values, p_values, d_values, q_values)
 ```
 
-```bash
+```Python
 rmse = sqrt(mean_squared_error(test_data,pred))
 print(rmse)
 ```
-After testing various combinations of p, d, and q, we obtained the best ARIMA model <br>
 Output:
 ```bash
 Best ARIMA(10, 1, 1) RMSE=15.556
 ```
-The order (10, 1, 1) resulted in higher error when compared to the order (1, 0, 1). Therefore, we have opted for order (1, 0, 1) for our model.
+After testing various combinations of p, d, and q, we obtained the best ARIMA model. <br>
+
+The order (10, 1, 1) resulted a slightly higher error when compared to the order (1, 0, 1). Therefore, we have opted for order (1, 0, 1) for our model.
 |       Order          |       RMSE         |
 | :------------------: | :----------------: |
 |   (1,0,1)            |   15.49            |
-|   (10,1,1)           |   17.55            |
+|   (10,1,1)           |   15.55            |
 
 ### Forecast for all product
 Forecast all product for the next 90 days:
@@ -198,7 +213,7 @@ Output:
 | 2023-01-04 | 2.453314         | 2.947930        | 5.971625	  | 4.012703      | 3.505712      | 4.953368      | 1.989689      | 2.801329      | 3.509329      | 3.986237      |
 | 2023-01-05 | 2.461101         | 2.955920        | 6.004260      | 4.015804      | 3.520867      | 4.954385      | 1.989690      | 2.800869      | 3.502604      | 4.058795      |
 
-```bash
+```Python
 round(forecast_product_df.describe().T['mean'],0)
 ```
 Output:
@@ -260,7 +275,7 @@ sns.lineplot(x = 'Clusters', y = 'WSS', data = mycenters, marker="o")
 <img src="./images/wss.png">
 </p>
 
-From above we see that the optimum value of K for this generated data is 3 because for K value of 3 and above the fluctuations in wcss is not happening much. <br>
+From above we see that the optimum value of K for this generated data is 3, because for K = 3 and above the fluctuations in wcss is not happening much. <br>
 
 Now here's comes the Silhouette. Let's use it to check out the best K value for our clustering algorithm:
 
@@ -385,7 +400,7 @@ For n_clusters = 6 The average silhouette_score is : 0.5138904283581923
 <img src="./images/silhouette-k=6.png">
 
 
-Both elbow and silhouette score got different result, but I still choose elbow (K=3) because the calculation simplicity of elbow makes it more suited than silhouette score for datasets with smaller size or time complexity.
+**Both elbow and silhouette score got different result**, but we **still choose elbow (K=3)** because the calculation simplicity of elbow makes it more suited than silhouette score for datasets with smaller size or time complexity.
 
 ### Applying cluster K=3
 ```Python
@@ -408,6 +423,8 @@ plt.show()
 <p align="center">
 <img src="./images/applying-k=3.png">
 </p>
+
+After implementing clustering with K=3, we assigned the clusters to the dataset.
 
 ```Python
 # Convert the NumPy array into a DataFrame
