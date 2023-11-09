@@ -79,7 +79,7 @@ sns.lineplot(data=test_data, x=test_data.index, y=test_data)
 plt.show()
 ```
 <p align="center">
-  <img src="./split-dataset.png">
+  <img src="./images/split-dataset.png">
 </p>
 
 ### Implement ARIMA
