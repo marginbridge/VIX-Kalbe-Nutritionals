@@ -71,7 +71,7 @@ train_data = df['Qty'][:train_size]
 test_data = df['Qty'][train_size:]
 print(train_data.shape,test_data.shape)
 ```
-Visulize the differences:
+Visualize the differences:
 ```Python
 plt.figure(figsize=(12,5))
 sns.lineplot(data=train_data, x=train_data.index, y=train_data)
@@ -79,7 +79,7 @@ sns.lineplot(data=test_data, x=test_data.index, y=test_data)
 plt.show()
 ```
 <p align="center">
-  <img src="./images/highest-total-amount.png">
+  <img src="./split-dataset.png">
 </p>
 
 ### Implement ARIMA
