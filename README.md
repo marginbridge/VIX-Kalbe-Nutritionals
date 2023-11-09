@@ -45,7 +45,7 @@ As we can see, Lingga has the highest total quantity of products.
 <img src="./images/highest-total-amount.png">
 </p>
 
-As we can see, cheese stick has the best selling product.
+As we can see, cheese stick has the highest total amount.
 
 ## 2. Data Visualization
 
