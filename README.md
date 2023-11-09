@@ -21,8 +21,7 @@ The VIX Data Scientist at Kalbe Nutritionals is a virtual internship experience 
 ## 1. Exploratory Data Analysis (EDA) in DBeaver
 **What is the average age of customers based on their marital status?** <br>
 <p align="center">
-![Average age of customers based on their marital status?](images/gender.png)
-<br>
+<img width="165" alt="gender" src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/09598e09-6b3d-43e0-877f-509d9c23b40b"> <br>
 
 **What is the average age of customers based on their gender?** <br>
 <p align="center"> 
