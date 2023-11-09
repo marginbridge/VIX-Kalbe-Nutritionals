@@ -21,19 +21,31 @@ The VIX Data Scientist at Kalbe Nutritionals is a virtual internship experience 
 ## 1. Exploratory Data Analysis (EDA) in DBeaver
 **What is the average age of customers based on their marital status?** <br>
 <p align="center">
-<img src="./images/gender.png"> <br>
+<img src="./images/maritalstatus.png">
+</p>
+
+As we can see, the age for married individuals is 43, for single, it is 29, and the rest entries are null.
 
 **What is the average age of customers based on their gender?** <br>
 <p align="center"> 
-<img src="./images/highest-total-amount.png"> <br>
+<img src="./images/gender.png"> <br>
+</p>
+
+As we can see, the age for women (0) is 40, while for men (1) it is 39.
 
 **What is the name of the store with the highest total quantity of products?** <br>
 <p align="center"> 
-<img src="./images/highest-total-quantity.png"> <br>
+<img src="./images/highest-total-quantity.png">
+</p>
+
+As we can see, Lingga has the highest total quantity of products.
 
 **What is the name of the best-selling product with the highest total amount?** <br>
 <p align="center"> 
 <img src="./images/highest-total-amount.png">
+</p>
+
+As we can see, cheese stick has the best selling product.
 
 ## 2. Data Visualization
 
