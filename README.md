@@ -116,6 +116,8 @@ output:
 ```bash
 15.49482859020857
 ```
+After the initial attempt, we got an error of 15.49%. Currently, we are working on enhancing the model through ARIMA grid search.
+
 ### Improvement: Grid search ARIMA
 ```Python
 # Evaluate an ARIMA model for a given order (p, d, q)
@@ -167,20 +169,21 @@ warnings.filterwarnings("ignore")
 evaluate_models(df['Qty'].values, p_values, d_values, q_values)
 ```
 
-```bash
+```Python
 rmse = sqrt(mean_squared_error(test_data,pred))
 print(rmse)
 ```
-After testing various combinations of p, d, and q, we obtained the best ARIMA model <br>
 Output:
 ```bash
 Best ARIMA(10, 1, 1) RMSE=15.556
 ```
-The order (10, 1, 1) resulted in higher error when compared to the order (1, 0, 1). Therefore, we have opted for order (1, 0, 1) for our model.
+After testing various combinations of p, d, and q, we obtained the best ARIMA model. <br>
+
+The order (10, 1, 1) resulted a slightly higher error when compared to the order (1, 0, 1). Therefore, we have opted for order (1, 0, 1) for our model.
 |       Order          |       RMSE         |
 | :------------------: | :----------------: |
 |   (1,0,1)            |   15.49            |
-|   (10,1,1)           |   17.55            |
+|   (10,1,1)           |   15.55            |
 
 ### Forecast for all product
 Forecast all product for the next 90 days:
@@ -210,7 +213,7 @@ Output:
 | 2023-01-04 | 2.453314         | 2.947930        | 5.971625	  | 4.012703      | 3.505712      | 4.953368      | 1.989689      | 2.801329      | 3.509329      | 3.986237      |
 | 2023-01-05 | 2.461101         | 2.955920        | 6.004260      | 4.015804      | 3.520867      | 4.954385      | 1.989690      | 2.800869      | 3.502604      | 4.058795      |
 
-```bash
+```Python
 round(forecast_product_df.describe().T['mean'],0)
 ```
 Output:
