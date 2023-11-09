@@ -15,7 +15,7 @@ Kalbe Nutritionals sales dataset tahun 2022.
 * Python <br>
 * Jupyter Notebook <br>
 * Tableau <br>
-* Dbeaver <br>
+* DBeaver <br>
 * PostgreSQL <br>
 
 ## 1. Exploratory Data Analysis (EDA) in DBeaver
