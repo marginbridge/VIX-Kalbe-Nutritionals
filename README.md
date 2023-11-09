@@ -105,25 +105,55 @@ output:
 ```Python
 15.49482859020857
 ```
-### Improvement: Manual ARIMA
-Tuned p,d,q order(70,2,1) for improvement by 
+### Improvement: Grid search ARIMA
 ```Python
-model = ARIMA(train_data, order=(70,2,2))
-model = model.fit()
-model.summary()
-```
-```Python
-start = len(train_data)
-end = len(train_data)+len(test_data)-1
-pred = model.predict(start=start,end=end,typ='levels')
-print(pred)
-```
-```Python
-pred.plot(label='Predicted')
-test_data.plot(label='Actual')
+# Evaluate an ARIMA model for a given order (p, d, q)
+def evaluate_arima_model(X, arima_order):
+    # Prepare training dataset
+    train_size = int(len(df['Qty']) * 0.8)
+    train_data, test_data = df['Qty'][:train_size], df['Qty'][train_size:]
+    history = [x for x in train_data]
 
-plt.legend()
-plt.show()
+    # Make predictions
+    predictions = list()
+    for t in range(len(test_data)):
+        model = ARIMA(history, order=arima_order)
+        model_fit = model.fit()
+        yhat = model_fit.forecast()[0]
+        predictions.append(yhat)
+        history.append(test_data[t])
+
+    # Calculate out-of-sample error
+    rmse = sqrt(mean_squared_error(test_data, predictions))
+    return rmse
+```
+```Python
+# Evaluate combinations of p, d, and q values for an ARIMA model
+def evaluate_models(dataset, p_values, d_values, q_values):
+    dataset = dataset.astype('float32')
+    best_score, best_cfg = float("inf"), None
+
+    for p in p_values:
+        for d in d_values:
+            for q in q_values:
+                order = (p, d, q)
+                try:
+                    rmse = evaluate_arima_model(dataset, order)
+                    if rmse < best_score:
+                        best_score, best_cfg = rmse, order
+                    print('ARIMA%s RMSE=%.3f' % (order, rmse))
+                except:
+                    continue
+
+    print('Best ARIMA%s RMSE=%.3f' % (best_cfg, best_score))
+
+# Evaluate parameters
+p_values = [6, 8, 10]
+d_values = range(0, 3)
+q_values = range(0, 3)
+
+warnings.filterwarnings("ignore")
+evaluate_models(df['Qty'].values, p_values, d_values, q_values)
 ```
 <p align="center">
   <img src="https://github.com/marginbridge/VIX-Kalbe-Nutritionals/assets/90979655/a6093ac6-b0e8-4e0d-83e4-a26c8d618091" alt="Image description" width="500" height="450">
