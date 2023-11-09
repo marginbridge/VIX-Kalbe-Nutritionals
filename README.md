@@ -155,12 +155,13 @@ warnings.filterwarnings("ignore")
 evaluate_models(df['Qty'].values, p_values, d_values, q_values)
 ```
 
-```Python
+```bash
 rmse = sqrt(mean_squared_error(test_data,pred))
 print(rmse)
 ```
-```Python
+After testing various combinations of p, d, and q, we obtained the best ARIMA model <br>
 Output:
+```bash
 Best ARIMA(10, 1, 1) RMSE=15.556
 ```
 The order (10, 1, 1) resulted in higher error when compared to the order (1, 0, 1). Therefore, we have opted for order (1, 0, 1) for our model.
@@ -171,7 +172,7 @@ The order (10, 1, 1) resulted in higher error when compared to the order (1, 0, 
 
 ### Forecast for all product
 Forecast all product for the next 90 days:
-```Python
+```python
 product_reg_df = df_merged[['Qty', 'Date', 'Product Name']]
 new = product_reg_df.groupby("Product Name")
 
@@ -197,7 +198,7 @@ Output:
 | 2023-01-04 | 2.453314         | 2.947930        | 5.971625	  | 4.012703      | 3.505712      | 4.953368      | 1.989689      | 2.801329      | 3.509329      | 3.986237      |
 | 2023-01-05 | 2.461101         | 2.955920        | 6.004260      | 4.015804      | 3.520867      | 4.954385      | 1.989690      | 2.800869      | 3.502604      | 4.058795      |
 
-```Python
+```bash
 round(forecast_product_df.describe().T['mean'],0)
 ```
 Output:
@@ -370,7 +371,7 @@ for n_clusters in range_n_clusters:
 plt.show()
 ```
 Output:
-```Python
+```bash
 For n_clusters = 2 The average silhouette_score is : 0.5634481545384639
 For n_clusters = 3 The average silhouette_score is : 0.5391208505196545
 For n_clusters = 4 The average silhouette_score is : 0.5200001192732446
