@@ -101,7 +101,7 @@ rmse = sqrt(mean_squared_error(test_data,pred))
 print(rmse)
 ```
 output:
-```Python
+```bash
 15.49482859020857
 ```
 ### Improvement: Grid search ARIMA
