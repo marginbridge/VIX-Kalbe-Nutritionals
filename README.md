@@ -9,13 +9,13 @@ The VIX Data Scientist at Kalbe Nutritionals is a virtual internship experience 
 4. Create customer clusters or segments based on various criteria.
 
 **Dataset** <br>
-[Kalbe Nutritionals sales dataset tahun 2022](https://drive.google.com/drive/folders/1_rQrauVW2OvLIe2zd54Vcwnr2EY-vnnR) <br>
+Kalbe Nutritionals sales dataset tahun 2022.
 
 **Tools** <br>
 * Python <br>
 * Jupyter Notebook <br>
 * Tableau <br>
-* Dbeaver <br>
+* DBeaver <br>
 * PostgreSQL <br>
 
 ## 1. Exploratory Data Analysis (EDA) in DBeaver
@@ -241,7 +241,7 @@ df = df_merged.groupby('CustomerID').agg({'TransactionID':['count'],
 df.columns = ['CustomerID','TransactionID','Quantity','Total Amount']
 df.head()
 ```
-Feature slection for the model. Considering only 2 features (**Quantity and Total Amount**) Feature scaling:
+Performing feature selection for the model, focusing on only two features: **Quantity and Total Amount**. 
 ```Python
 X = df.iloc[:,[2,3]].values
 ```
