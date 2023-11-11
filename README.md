@@ -48,6 +48,9 @@ As we can see, Lingga has the highest total quantity of products.
 As we can see, cheese stick has the highest total amount.
 
 ## 2. Data Visualization
+<p align="center"> 
+<img src="./images/dashboard.png"> <br>
+</p>
 
 ## 3. Time Series Forecasting
 Aim to implement a machine learning model to accurately predict the number of sales (quantity) of the total Kalbe products.
